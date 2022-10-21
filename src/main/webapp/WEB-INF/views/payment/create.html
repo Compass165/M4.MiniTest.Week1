@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Payment</title>
+</head>
+<body>
+
+<h1>Create Payment</h1>
+<p>
+    <a href="/payments">Payment List</a>
+</p>
+
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+
+<form th:action="@{/create-payment}" th:object="${paymentForm}" method="post"
+novalidate="novalidate" enctype="multipart/form-data">
+    <talbe>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type="text" th:field="*{price}"></td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td><input type="text" th:field="*{description}"></td>
+        </tr>
+        <tr>
+            <td>Image:</td>
+            <td><input type="file" th:field="*{image}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Create Payment"></td>
+        </tr>
+    </talbe>
+</form>
+
+</body>
+</html>
